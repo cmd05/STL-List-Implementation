@@ -20,11 +20,11 @@
  *
  *	- For an empty list list.begin() == list.end()
  *	- pre and sent are not stored explicitly by list, and they do not 
- *		contain a valid value. They must be used only for checking the bounds
- *		of the list.
+ *	  contain a valid value. They must be used only for checking the bounds
+ *	  of the list.
  *
  *	- the list provides a custom resize_uninitialized() which allocates uninitialized storage
- *		for list nodes
+ *	  for list nodes
  */ 
 template<typename T, typename A = std::allocator<T>>
 class list {
