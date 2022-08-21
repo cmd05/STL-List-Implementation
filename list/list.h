@@ -471,24 +471,6 @@ void list<T,A>::swap(list<T,A>& other) {
 	std::swap(other.alloc, alloc);
 }
 
-/// Non Member Functions
-template<typename T, typename A>
-bool operator==(const list<T,A>& first, const list<T,A>& second) {
-	if(first.size() != second.size()) return false;
-
-	typename list<T,A>::iterator p1 = first.begin();
-	typename list<T,A>::iterator p2 = second.begin();
-	for(; p1 != first.end(); p1++, p2++)
-		if(*p1 != *p2) return false;
-	
-	return true;
-}
-
-template<typename T, typename A>
-bool operator!=(const list<T,A>& first, const list<T,A>& second) {
-	return !(first == second);
-}
-
 /// Operations
 template<typename T, typename A>
 template<class Compare>
@@ -526,4 +508,22 @@ void list<T,A>::reverse() {
 
 	for(size_type i = 0; i != mid; i++, p1++, p2--)
 		*p1 = *p2;
+}
+
+/// Non Member Functions
+template<typename T, typename A>
+bool operator==(const list<T,A>& first, const list<T,A>& second) {
+	if(first.size() != second.size()) return false;
+
+	typename list<T,A>::iterator p1 = first.begin();
+	typename list<T,A>::iterator p2 = second.begin();
+	for(; p1 != first.end(); p1++, p2++)
+		if(*p1 != *p2) return false;
+	
+	return true;
+}
+
+template<typename T, typename A>
+bool operator!=(const list<T,A>& first, const list<T,A>& second) {
+	return !(first == second);
 }
