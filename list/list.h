@@ -130,9 +130,9 @@ class list<T,A>::iterator {
 	friend class list;
 	list_node* node;
 public:
-	using value_type = list_node;
-	using pointer = list_node*;
-	using reference = list_node&;
+	using value_type = T;
+	using pointer = T*;
+	using reference = T&;
 	using iterator_category = std::bidirectional_iterator_tag;
 	using difference_type = std::ptrdiff_t;
 
@@ -155,9 +155,9 @@ template<typename T, typename A>
 class list<T,A>::reverse_iterator {
 	list_node* node;
 public:
-	using value_type = list_node;
-	using pointer = list_node*;
-	using reference = list_node&;
+	using value_type = T;
+	using pointer = T*;
+	using reference = T&;
 	using iterator_category = std::bidirectional_iterator_tag;
 	using difference_type = std::ptrdiff_t;
 
