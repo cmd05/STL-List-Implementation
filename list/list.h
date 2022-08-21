@@ -5,27 +5,27 @@
 
 /**
  * A custom implementation of the standard library list
- * 
+ *
  * DEFINITIONS:
- *  - pre: node before first element
- *  - sent: node after last element
- *  - head: first element of list
- *  - tail: last element of list 
- *  - node: node refers to list_node
- * 
+ *	- pre: node before first element
+ *	- sent: node after last element
+ *	- head: first element of list
+ *	- tail: last element of list 
+ *	- node: node refers to list_node
+ *
  * NOTES:
- * 	- An invalid list will be in the form {nullptr, nullptr, 0} 
- * 	  (check before destroying or dereferencing)
- *  - An empty list will in the form {sent, sent, 0}
- *  - A non-empty list will be in the form {head, tail, n} 
- * 
- * 	- For an empty list list.begin() == list.end()
- *  - pre and sent are not stored explicitly by list, and they do not 
- *    contain a valid value. They must be used only for checking the bounds
- *    of the list.
- * 
- *  - the list provides a custom resize_uninitialized() which allocates uninitialized storage
- *    for list nodes
+ *	- An invalid list will be in the form {nullptr, nullptr, 0} 
+ *	 (check before destroying or dereferencing)
+ *	- An empty list will in the form {sent, sent, 0}
+ *	- A non-empty list will be in the form {head, tail, n} 
+ *
+ *	- For an empty list list.begin() == list.end()
+ *	- pre and sent are not stored explicitly by list, and they do not 
+ *		contain a valid value. They must be used only for checking the bounds
+ *		of the list.
+ *
+ *	- the list provides a custom resize_uninitialized() which allocates uninitialized storage
+ *		for list nodes
  */ 
 template<typename T, typename A = std::allocator<T>>
 class list {
@@ -318,7 +318,7 @@ typename list<T,A>::size_type list<T,A>::max_size() const {
 
 /// Private Modifiers
 template<typename T, typename A>
-void list<T,A>::alloc_empty_list()  {
+void list<T,A>::alloc_empty_list() {
 	list_node* sent = get_node();
 	list_node* pre = get_node();
 
@@ -370,7 +370,7 @@ typename list<T,A>::iterator list<T,A>::insert(iterator pos, list_node* new_node
 	if(pos == end()) _tail = new_node;
 
 	// set next pointer of new node
-    new_node->_next = pos_node;
+	new_node->_next = pos_node;
 	
 	// set prev pointer of new node
 	new_node->_prev = pos_node->_prev;
