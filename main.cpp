@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include <list>
 #include "list/list.h"
 #include "tests/tests.h"
