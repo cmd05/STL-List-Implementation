@@ -1,6 +1,7 @@
-#include <list>
-#include "list.h"
 #include <iostream>
+
+#include <list>
+#include "list/list.h"
 
 template<typename T>
 void print(std::initializer_list<T> val, char sep = '\t') {
