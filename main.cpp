@@ -3,5 +3,7 @@
 #include "tests/tests.h"
 
 int main() {
-	std::cout << "time: " << insertion_test<std::list>(10000);
+	int n = 50000;
+	std::cout << "std::list: " << insertion_test<std::list>(n) << " ms\n";
+	std::cout << "list: " << insertion_test<std::list>(n) << " ms";
 }
