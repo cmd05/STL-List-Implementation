@@ -1,7 +1,6 @@
 #include <memory>
 #include <iterator>
 #include <limits>
-#include <iostream>
 
 /**
  * A custom implementation of the standard library list
