@@ -33,7 +33,7 @@ private:
 	struct list_node;
 public:
 	/// Public Typedefs
-	using size_type = unsigned long;
+	using size_type = std::size_t;
 	using value_type = T;
 	class iterator; // bidirectional iterator
 	class reverse_iterator;
