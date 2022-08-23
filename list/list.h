@@ -165,7 +165,7 @@ public:
 	reverse_iterator();
 	reverse_iterator(list_node* p): node{p} {}
 
-	reverse_iterator& operator++() { node = node->prev; return *this; }
+	reverse_iterator& operator++() { node = node->_prev; return *this; }
 	reverse_iterator operator++(int) { reverse_iterator tmp {node}; node = node->_prev; return tmp; }
 	reverse_iterator& operator--() { node = node->_next; return *this; }
 	reverse_iterator operator--(int) { reverse_iterator tmp {node}; node = node->_next; return tmp; }
