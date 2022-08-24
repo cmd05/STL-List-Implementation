@@ -6,25 +6,6 @@
 #include <limits>
 
 /**
- *	TODO:
- * 		- implement sort()
- * 		- fix merge for empty lists
- * 		- delete pre and sent nodes when invalid
- * 		- validate methods for empty list
- */
-
-/**
- * experimental
- * 
- * SUMMARY:
- * 		- fix merge
- * 		- check methods for empty list
- * 		- delete invalid pre and sent nodes
- * 		- move/copy allocators
- * 		- use std::reverse_iterator
- */
-
-/**
  * A custom implementation of the standard library list
  *
  * DEFINITIONS:
