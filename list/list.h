@@ -10,10 +10,18 @@
  * 		- implement sort()
  * 		- fix merge for empty lists
  * 		- delete pre and sent nodes when invalid
- * 		- check for memory leaks
  * 		- validate methods for empty list
- * 		- // swap allocators on move
- * 		- // copy allocators on assign?
+ */
+
+/**
+ * experimental
+ * 
+ * SUMMARY:
+ * 		- fix merge
+ * 		- check methods for empty list
+ * 		- delete invalid pre and sent nodes
+ * 		- move/copy allocators
+ * 		- use std::reverse_iterator
  */
 
 /**
