@@ -156,6 +156,8 @@ public:
 	iterator operator++(int) { iterator tmp {node}; node = node->_next; return tmp; }
 	iterator& operator--() { node = node->_prev; return *this; }
 	iterator operator--(int) { iterator tmp {node}; node = node->_prev; return tmp; }
+	iterator prev() const { iterator p{node}; p--; return p; }
+	iterator next() const { iterator p{node}; p++; return p; }
 
 	T& operator*() { return node->_val; }
 	T* operator->() { return &(node->_val); }
@@ -198,7 +200,7 @@ void list<T,A>::assign(iterator first, iterator last) {
 		std::copy(first, last, std::back_inserter(*this));
 	else
 		while(current_it != end()) {
-			iterator tmp {current_it.node->_next};
+			iterator tmp = current_it.next();
 			erase(current_it);
 			current_it = tmp;
 		}
@@ -396,7 +398,7 @@ typename list<T,A>::iterator list<T,A>::insert(iterator pos, std::initializer_li
 template<typename T, typename A>
 typename list<T,A>::iterator list<T,A>::erase(iterator pos) {
 	list_node* pos_node = pos.node;
-	iterator next_pos {pos_node->_next};
+	iterator next_pos = pos.next();
 
 	// reset node links
 	pos_node->_prev->_next = pos_node->_next;
