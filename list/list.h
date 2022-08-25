@@ -196,8 +196,7 @@ void list<T,A>::assign(iterator first, iterator last) {
 	for(; current_it != end() && first != last; current_it++, first++)
 		*current_it = *first;
 	if(current_it == end())
-		for(; first != last; first++)
-			push_back(*first);
+		std::copy(first, last, std::back_inserter(*this));
 	else
 		while(current_it != end()) {
 			iterator tmp {current_it.node->_next};
@@ -505,25 +504,14 @@ void list<T,A>::merge(list<T,A>& other) {
 
 template<typename T, typename A>
 void list<T,A>::reverse() {
-	iterator p1 = begin();
-	iterator p2 = tail();
-	size_type mid = (_size / 2) + 1;
-
-	for(size_type i = 0; i != mid; i++, p1++, p2--)
-		std::swap(*p1, *p2);
+	std::reverse(begin(), end());
 }
 
 /// Non Member Functions
 template<typename T, typename A>
 bool operator==(const list<T,A>& first, const list<T,A>& second) {
-	if(first.size() != second.size()) return false;
-
-	typename list<T,A>::iterator p1 = first.begin();
-	typename list<T,A>::iterator p2 = second.begin();
-	for(; p1 != first.end(); p1++, p2++)
-		if(*p1 != *p2) return false;
-	
-	return true;
+	return first.size() == second.size() &&
+			std::equal(first.begin(), first.end(), second.begin());
 }
 
 template<typename T, typename A>
