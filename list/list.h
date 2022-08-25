@@ -1,9 +1,13 @@
 #pragma once
 
 #include <memory>
+#include <algorithm>
 #include <iterator>
 #include <utility>
 #include <limits>
+#include <initializer_list>
+#include <cstddef>
+#include <functional>
 
 /**
  * A custom implementation of the standard library list
