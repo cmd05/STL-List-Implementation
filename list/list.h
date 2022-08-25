@@ -130,7 +130,6 @@ struct list<T,A>::list_node {
 public:
 	list_node(): _prev{nullptr}, _next{nullptr}, _val{T()} {}
 	// list_node() {}
-
 	list_node(T v): _val{v} {}
 	list_node(T v, list_node* p, list_node* s): _val{v}, _prev{p}, _next{s} {}
 	list_node(list_node* p, list_node* s): _prev{p}, _next{s} {}
@@ -210,7 +209,6 @@ template<typename T, typename A>
 list<T,A>::list(const list<T,A>& other) {
 	alloc_empty_list();
 	alloc = other.alloc;
-	
 	std::copy(other.begin(), other.end(), std::back_inserter(*this));
 }
 
@@ -374,6 +372,7 @@ typename list<T,A>::iterator list<T,A>::insert(iterator pos, list_node* new_node
 	pos_node->_prev = new_node;
 	
 	++_size;
+
 	return iterator{new_node};
 }
 
