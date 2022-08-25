@@ -72,12 +72,13 @@ class FunctionalityTests {
 public:
 	static void test1() {
 		Container<char> l1 {'x', 'y', 'z'};
-		Container<char> l2 = l1;
+		Container<char> l2 {1,2,3,4,5,6,7};
+		l2.assign(l1.begin(), l1.end());
 
-		l2.merge(l1);
+		// l2.merge(l1);
 		l2.push_back('|');
-		l2.insert(l2.end(), {'q', 'w', 'e'});
-		l2.insert(std::find(l2.begin(), l2.end(), '|'), '.');
+		// l2.insert(l2.end(), {'q', 'w', 'e'});
+		// l2.insert(std::find(l2.begin(), l2.end(), '|'), '.');
 		Debug::print_c(l2);
 	}
 };
