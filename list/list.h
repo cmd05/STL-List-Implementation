@@ -214,12 +214,11 @@ list<T,A>::list(const list<T,A>& other) {
 
 template<typename T, typename A>
 list<T,A>& list<T,A>::operator=(const list<T,A>& other) {
-	if(this == &other) return *this;
-	
-	alloc_empty_list();
-	alloc = other.alloc;
-	assign(other.begin(), other.end());
-	
+	// copy and swap? (traversal will be O(n))
+	if(this != &other) {
+		alloc = other.alloc;
+		assign(other.begin(), other.end());
+	}
 	return *this;
 }
 
@@ -370,7 +369,7 @@ typename list<T,A>::iterator list<T,A>::insert(iterator pos, list_node* new_node
 	new_node->_prev = pos_node->_prev;
 	pos_node->_prev->_next = new_node;
 	pos_node->_prev = new_node;
-	
+
 	++_size;
 
 	return iterator{new_node};
