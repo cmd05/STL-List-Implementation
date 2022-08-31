@@ -112,6 +112,9 @@ private:
 	/// Operations
 	void concat_list(list& other);
 
+	template<class Compare>
+	void sortrange(iterator ibegin, iterator iend, Compare comp);
+
 	/// Properties
 	list_node* _head;
 	list_node* _tail;
@@ -472,7 +475,7 @@ template<typename T, typename A>
 void list<T,A>::concat_list(list& other) {
 	other.delete_node(other.pre()); // free invalidated nodes
 	iterator init_end {_tail->_next};
-	
+
 	// concatenate ends
 	_tail->_next = other._head;
 	other._head->_prev = _tail;
@@ -487,11 +490,28 @@ void list<T,A>::concat_list(list& other) {
 	_size += other.size();
 }
 
+template<typename T, typename A>
+template<class Compare>
+void list<T,A>::sortrange(iterator ibegin, iterator iend, Compare comp) {
+	// FIXME - Change bubble sort to merge sort
+	if(ibegin == iend) return;
+
+	bool sorted = true;
+	for(iterator p = ibegin; p != iend.prev(); p++) {
+		if(comp(*(p.next()), *p)) {
+			std::swap(*p, *(p.next()));
+			sorted = false;
+		}
+	}
+	
+	if(!sorted) sortrange(ibegin, iend, comp);
+}
+
 /// Public Operations
 template<typename T, typename A>
 template<class Compare>
-void list<T,A>::sort(Compare cmp) {
-	// TODO
+void list<T,A>::sort(Compare comp) {
+	sortrange(begin(), end(), comp);
 }
 
 template<typename T, typename A>
