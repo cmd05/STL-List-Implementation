@@ -3,6 +3,7 @@
 #include <iostream>
 #include <chrono>
 #include <algorithm>
+#include <utility>
 #include <list>
 #include "../list/list.h"
 
@@ -80,5 +81,14 @@ public:
 		// l2.insert(l2.end(), {'q', 'w', 'e'});
 		// l2.insert(std::find(l2.begin(), l2.end(), '|'), '.');
 		Debug::print_c(l2);
+	}
+
+	template<class Compare = std::greater<>>
+	static void sort_list_test(Compare comp = {}) {
+		Container<int> l1 = {92,81,18,45,92,71};
+		Container<int> l2 = {87,46,73,73,100,99};
+		l1.merge(l2);
+		// l1.sort(comp);
+		Debug::print_c(l1);
 	}
 };
