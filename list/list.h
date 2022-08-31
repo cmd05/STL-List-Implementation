@@ -94,7 +94,7 @@ public:
 	void merge(list& other);
 	void reverse();
 private:
-	/// Private Modifiers
+	/// Modifiers
 	void alloc_empty_list();
 	void move(list&& other);
 	void destroy();
