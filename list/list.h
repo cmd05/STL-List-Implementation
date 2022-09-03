@@ -474,7 +474,7 @@ void list<T,A>::swap(list<T,A>& other) {
 template<typename T, typename A>
 void list<T,A>::concat_list(list& other) {
 	other.delete_node(other.pre()); // free invalidated nodes
-	iterator init_end {_tail->_next};
+	iterator ti_end = end(); // store iterator to end of `this` list
 
 	// concatenate ends
 	_tail->_next = other._head;
@@ -485,7 +485,7 @@ void list<T,A>::concat_list(list& other) {
 	if(empty()) {
 		delete_node(pre());
 		_head = other._head;
-	} else delete_node(init_end);
+	} else delete_node(ti_end);
 
 	_size += other.size();
 }
