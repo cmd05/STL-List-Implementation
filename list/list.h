@@ -34,10 +34,10 @@
 template<typename T, typename A = std::allocator<T>>
 class list {
 private:
-	/// Private Typedefs
+	/// Typedefs
 	struct list_node;
 public:
-	/// Public Typedefs
+	/// Typedefs
 	using size_type = std::size_t;
 	using value_type = T;
 	class iterator; // bidirectional iterator
