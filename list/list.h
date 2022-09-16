@@ -219,11 +219,9 @@ list<T,A>::list(const list<T,A>& other) {
 
 template<typename T, typename A>
 list<T,A>& list<T,A>::operator=(const list<T,A>& other) {
-	// copy and swap? (traversal will be O(n))
-	if(this != &other) {
-		alloc = other.alloc;
-		assign(other.begin(), other.end());
-	}
+	alloc = other.alloc;
+	assign(other.begin(), other.end());
+
 	return *this;
 }
 
