@@ -495,12 +495,11 @@ void list<T,A>::sortrange(iterator ibegin, iterator iend, Compare comp) {
 	if(ibegin == iend) return;
 
 	bool sorted = true;
-	for(iterator p = ibegin; p != iend.prev(); p++) {
+	for(iterator p = ibegin; p != iend.prev(); p++)
 		if(comp(*(p.next()), *p)) {
 			std::swap(*p, *(p.next()));
 			sorted = false;
 		}
-	}
 	
 	if(!sorted) sortrange(ibegin, iend, comp);
 }
