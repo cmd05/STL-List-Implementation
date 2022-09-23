@@ -184,7 +184,7 @@ list<T,A>::list(std::initializer_list<T> lst) {
 template<typename T, typename A>
 list<T,A>::list(iterator begin, iterator end) {
 	alloc_empty_list();
-	std::copy(begin, end, std::back_inserter(*this));
+	assign(begin, end);
 }
 
 template<typename T, typename A>
@@ -214,7 +214,7 @@ template<typename T, typename A>
 list<T,A>::list(const list<T,A>& other) {
 	alloc_empty_list();
 	alloc = other.alloc;
-	std::copy(other.begin(), other.end(), std::back_inserter(*this));
+	assign(other.begin(), other.end());
 }
 
 template<typename T, typename A>
